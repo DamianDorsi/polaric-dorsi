@@ -9,9 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-
-
-const pages = ['Productos', 'Reseñas', 'Portfolio'];
+import CartWidget from './CartWidget';
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,8 +38,8 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'red',
               textDecoration: 'none',
+              color: "inherit"
             }}
           >
             Polaric
@@ -76,11 +74,49 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Typography
+              color="inherit"
+              textAlign="center"
+              component="a"
+              href="\juegos"
+              sx={{
+                textDecoration: "none"
+              }}
+              >  
+              Juegos
+              </Typography>
+            </MenuItem>
+            
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Typography
+              color="inherit"
+              textAlign="center"
+              component="a"
+              href="\categorias"
+              sx={{
+                textDecoration: "none"
+              }}
+              >  
+              Categorias
+              </Typography>
+            </MenuItem>
+
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Typography
+              color="inherit"
+              textAlign="center"
+              component="a"
+              href="\portfolio"
+              sx={{
+                textDecoration: "none"
+              }}
+              >  
+              Portfolio
+              </Typography>
+            </MenuItem>
+      
             </Menu>
           </Box>
           <Typography
@@ -102,18 +138,32 @@ const ResponsiveAppBar = () => {
             Polaric
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            
+              <Button 
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Juegos
               </Button>
-            ))}
+
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Categorias
+              </Button>
+
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Portfolio
+              </Button>
+            
           </Box>
 
-          
+          <CartWidget/>
+
         </Toolbar>
       </Container>
     </AppBar>

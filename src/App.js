@@ -1,16 +1,15 @@
 import './App.css';
+import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
+//import Promesas from "./components/Promesas"
 
-function App() {
+export default function App() {
   return (
     <div>
       <NavBar />
-      <div className="App">
-        <h1>Hola Mundo!°</h1>
-        <h2>Ahora si</h2>
-      </div>
+      <ItemListContainer prop = "hola mundo"/>
     </div>
   );
 }
 
-export default App;
+
