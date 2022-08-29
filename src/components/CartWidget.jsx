@@ -1,4 +1,3 @@
-//import React, {useState, useEffect} from "react";
 import Box from '@mui/material/Box';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
