@@ -4,12 +4,16 @@ import NavBar from './components/NavBar';
 import ItemCount from './components/ItemCount'
 //import Promesas from "./components/Promesas"
 
+function onAdd(x) {
+  alert("agregaste al carrito " + x + " productos");
+}
+
 export default function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer/>
-      <ItemCount/>
+      <ItemListContainer />
+      <ItemCount initial={1} stock={5} onAdd={onAdd}/>
     </div>
   );
 }
