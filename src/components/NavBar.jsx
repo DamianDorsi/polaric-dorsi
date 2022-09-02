@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import CartWidget from './CartWidget';
+import {Link} from "react-router-dom";
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -79,13 +80,11 @@ const ResponsiveAppBar = () => {
               <Typography
               color="inherit"
               textAlign="center"
-              component="a"
-              href="\juegos"
               sx={{
                 textDecoration: "none"
               }}
               >  
-              Juegos
+              <Link to="/www.google.com">Juegos</Link>
               </Typography>
             </MenuItem>
             

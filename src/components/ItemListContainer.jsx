@@ -1,8 +1,19 @@
+import React, {useState, useEffect} from "react";
+import ItemList from "./ItemList";
 
+export default function ItemListContainer(){
 
-export default function ItemListContainer({prop}){
+    const [item, setItem] = useState([]);
+    useEffect(() => {
+      fetch("./mock/items.json")
+        .then((res) => res.json())
+        .then((datos) => {
+          setItem(datos);
+        })
+    
+    }, []);
 
     return(
-        <h1>{prop}</h1>
+       <ItemList item = {item}/>
     )
 }
