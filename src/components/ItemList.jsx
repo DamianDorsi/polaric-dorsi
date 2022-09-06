@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from "react";
 import Item from "./Item";
+import Box from '@mui/material/Box'
 
-export default function ItemList({item}){
-
-    
+export default function ItemList({product}){
 
     return(
-        
-       <Item item = {item}/> 
-       
+        <Box sx={{display:"flex",
+                justifyContent:"space-around"}}>
+        {product.map((item)=>{
+            return(
+                <Item item = {item}/>
+            )
+        })}
+        </Box>
 )}

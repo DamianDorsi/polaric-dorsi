@@ -10,7 +10,11 @@ const Promesas = () => {
     useEffect(()=>{
         let promiseProduct = new Promise ((res, rej) =>{
             setTimeout(() => {
-                res([{id:"1", name:"LOL", description:"juego moba", stock: 10}])
+                res([{id:"1", name:"LOL", description:"juego moba", stock: 10},
+                     {id:"2", name:"LOL", description:"juego moba", stock: 10},
+                     {id:"3", name:"LOL", description:"juego moba", stock: 10},
+                     {id:"4", name:"LOL", description:"juego moba", stock: 10}
+                    ])
                 //rej("error")
             }, 2000);
         })
@@ -47,12 +51,6 @@ const Promesas = () => {
     /*itemlistcontainer promesa y producto
     itemlist el .map y pedir item por prop
     item el <div>*/
-
-
-
-
-
-
 
 
 }
