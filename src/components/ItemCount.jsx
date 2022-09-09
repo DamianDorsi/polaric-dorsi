@@ -1,15 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import { Button } from "@mui/material";
 
-export default function ItemCount({stock, initial, onAdd}){
+export default function ItemCount({stock, initial}){
 
-    
+  const onAdd =()=>{
+    console.log("compraste" + contador);
+  }
     const [contador, setContador] = useState(initial)
-    
  
     return (
         
       <div>
-        <h1>contador: {contador}</h1>
+        <h1>{contador}</h1>
         <button onClick={()=>{
           setContador(contador + 1)
           if (contador >= stock) {
@@ -25,13 +27,12 @@ export default function ItemCount({stock, initial, onAdd}){
             }
             }}>restar</button>
 
-        <br /><br /><br />
-    
-        <button onClick={()=>{
+        <Button onClick={()=>{
           return (
-            onAdd(contador)
-          )
-        }}>Agregar al carrito</button>
+            onAdd()
+          )}} variant="contained" size="small">Comprar</Button>
+
+        <br /><br /><br />
       </div>
 )
 }

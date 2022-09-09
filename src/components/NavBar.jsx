@@ -31,8 +31,6 @@ const ResponsiveAppBar = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="\index.html"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -43,7 +41,7 @@ const ResponsiveAppBar = () => {
               color: "inherit"
             }}
           >
-            Polaric
+           <Link to="/">Polaric</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -84,7 +82,7 @@ const ResponsiveAppBar = () => {
                 textDecoration: "none"
               }}
               >  
-              <Link to="/www.google.com">Juegos</Link>
+              <Link to="/www.google.com">Shooter</Link>
               </Typography>
             </MenuItem>
             
@@ -98,7 +96,7 @@ const ResponsiveAppBar = () => {
                 textDecoration: "none"
               }}
               >  
-              Categorias
+              Accion
               </Typography>
             </MenuItem>
 
@@ -112,17 +110,16 @@ const ResponsiveAppBar = () => {
                 textDecoration: "none"
               }}
               >  
-              Portfolio
+              RPG
               </Typography>
             </MenuItem>
       
             </Menu>
           </Box>
+         
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="\index.html"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -134,29 +131,30 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            Polaric
+            <Link to="/">Polaric</Link>
           </Typography>
+        
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
               <Button 
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Juegos
+                Shooter
               </Button>
 
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Categorias
+                Accion
               </Button>
 
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Portfolio
+                RPG
               </Button>
             
           </Box>

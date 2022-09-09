@@ -8,7 +8,7 @@ export default function ItemList({product}){
                 justifyContent:"space-around"}}>
         {product.map((item)=>{
             return(
-                <Item item = {item}/>
+                <Item key={item.id} item = {item}/>
             )
         })}
         </Box>

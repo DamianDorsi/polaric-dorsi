@@ -1,23 +1,18 @@
 import React, {useState, useEffect} from "react";
 import ItemDetail from "./ItemDetail";
+import {data} from "../mock/mockData"
+import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer(){
 
     const [item, setItem] = useState({})
+    const {id} = useParams()
 
     useEffect(()=>{
-        let itemProduct = new Promise ((res, rej) =>{
-            setTimeout(() => {
-                res({id:"1", title:"Call Of Duty", description:"Empujando los límites de lo que los fanáticos esperan de la franquicia de entretenimiento que establece récords, Call of Duty®: Black Ops II impulsa a los jugadores a un futuro cercano, la Guerra Fría del siglo XXI, donde la tecnología y las armas han convergido para crear una nueva generación de guerra.", price: 2000, pictureUrl:"../img/callOfDuty.jpg"}
-                )
-            }, 2000);
+        data.then((res) =>{
+            setItem(res.find((item)=> item.id === id))
         })
-        itemProduct.then((res) =>{
-            setItem(res)
-        })
-    },[])
-
-  
+    },[id])
 
     return(
         <div>
