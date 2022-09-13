@@ -13,12 +13,11 @@ export default function App() {
         {/*LO QUE SIEMPRE SE MUESTRA*/ }
         <NavBar />
       
-
         <Routes>
             <Route path="/" element={<ItemListContainer/>}/>
-            <Route path="/category/:id" element={<ItemDetailContainer />}/>
-            <Route path='/item/:id' element={<ItemDetail/>}/>
-        </Routes>
+            <Route path="/category/:categoryId" element={<ItemListContainer />}/>
+            <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+      </Routes>
 
 
 

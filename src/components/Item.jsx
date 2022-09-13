@@ -33,7 +33,7 @@ export default function Item({item}){
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" onClick={()=>navegar(`/item/${item.id}`)}>Ver mas</Button>
+        <Button variant="contained" size="small" onClick={()=> navegar(`/item/${item.id}`)}>Ver mas</Button>
       </CardActions>
     </Card>
     )

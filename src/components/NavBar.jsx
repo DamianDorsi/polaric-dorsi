@@ -28,6 +28,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
             {/* LOGO */ }
+          <Link to="/" style={{color: "white", textDecoration: "none"}}>
           <Typography
             variant="h6"
             noWrap
@@ -37,12 +38,11 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              textDecoration: 'none',
-              color: "inherit"
             }}
           >
-           <Link to="/">Polaric</Link>
+           Polaric
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -75,48 +75,37 @@ const ResponsiveAppBar = () => {
             >
               
             <MenuItem onClick={handleCloseNavMenu}>
-              <Typography
-              color="inherit"
-              textAlign="center"
-              sx={{
-                textDecoration: "none"
-              }}
-              >  
-              <Link to="/www.google.com">Shooter</Link>
+
+              <Typography textAlign="center"> 
+
+                <Link to="/category/shooter" style={{color: "black", textDecoration: "none"}}>Shooter</Link>
+
               </Typography>
+
+
             </MenuItem>
             
             <MenuItem onClick={handleCloseNavMenu}>
-              <Typography
-              color="inherit"
-              textAlign="center"
-              component="a"
-              href="\categorias"
-              sx={{
-                textDecoration: "none"
-              }}
-              >  
-              Accion
+              <Typography textAlign="center">
+
+                <Link to="/category/accion" style={{color: "black", textDecoration: "none"}}>Accion</Link>
+
               </Typography>
+
             </MenuItem>
 
             <MenuItem onClick={handleCloseNavMenu}>
-              <Typography
-              color="inherit"
-              textAlign="center"
-              component="a"
-              href="\portfolio"
-              sx={{
-                textDecoration: "none"
-              }}
-              >  
-              RPG
+              <Typography textAlign="center"> 
+
+                <Link to="/category/RPG" style={{color: "black", textDecoration: "none"}}>RPG</Link>
               </Typography>
+
             </MenuItem>
       
             </Menu>
           </Box>
          
+          <Link to="/" style={{color: "white", textDecoration: "none"}}>
           <Typography
             variant="h5"
             noWrap
@@ -127,34 +116,30 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
             }}
           >
-            <Link to="/">Polaric</Link>
+            Polaric
           </Typography>
+          </Link>
         
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
-              <Button 
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Shooter
+              <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
+
+                <Link to="/category/shooter" style={{color: "white", textDecoration: "none"}}>Shooter</Link>
+
               </Button>
 
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Accion
+              <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
+
+                <Link to="/category/accion" style={{color: "white", textDecoration: "none"}}>Accion</Link>
+
               </Button>
 
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                RPG
+              <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
+
+                <Link to="/category/RPG" style={{color: "white", textDecoration: "none"}}>RPG</Link>
+                
               </Button>
             
           </Box>

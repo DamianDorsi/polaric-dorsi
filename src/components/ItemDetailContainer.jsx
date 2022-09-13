@@ -9,9 +9,8 @@ export default function ItemDetailContainer(){
     const {id} = useParams()
 
     useEffect(()=>{
-        data.then((res) =>{
-            setItem(res.find((item)=> item.id === id))
-        })
+        data.then((res) =>
+            setItem(res.find((item)=> item.id === id)))
     },[id])
 
     return(

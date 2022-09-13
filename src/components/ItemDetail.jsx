@@ -4,8 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from "./ItemCount"
+import {useState} from "react";
 
 export default function ItemDetail({item}){
+
+  const [contador, setContador] = useState(1)
+
+  const onAdd =()=>{
+    console.log("compraste" + contador);
+  }
 
     return(
         <Card sx={{ maxWidth: 345 }}>
@@ -26,7 +33,7 @@ export default function ItemDetail({item}){
               <br />
              $ {item.price}
           </Typography>
-          <ItemCount stock={item.stock} initial={1}/>
+          <ItemCount stock={item.stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador}/>
         </CardContent>
       </Card> 
     )
