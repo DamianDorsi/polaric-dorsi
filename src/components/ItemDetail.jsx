@@ -5,13 +5,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from "./ItemCount"
 import {useState} from "react";
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 export default function ItemDetail({item}){
 
   const [contador, setContador] = useState(1)
+  const [compra, setCompra] = useState(false)
+  const {title, description, price, stock, img, id} = item
+  const {addItem} = useCart()
+  const navegar = useNavigate()
 
   const onAdd =()=>{
-    console.log("compraste" + contador);
+    let agregarCarrito = {
+      title,
+      price,
+      img,
+      id,      
+      quantity:contador
+    }
+    setCompra(true)
+    addItem(agregarCarrito) 
   }
 
     return(
@@ -19,21 +34,23 @@ export default function ItemDetail({item}){
         <CardMedia
           component="img"
           height="140"
-          image={item.img}
-          alt={item.name}
+          image={img}
+          alt={title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {item.title}
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {item.description}
+            {description}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
               <br />
-             $ {item.price}
+             $ {price}
           </Typography>
-          <ItemCount stock={item.stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador}/>
+          {! compra
+           ? <ItemCount stock={stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador}/>
+           : <Button variant="contained" size="small" onClick={()=> navegar(`/cart`)}> Ir al carrito </Button>}
         </CardContent>
       </Card> 
     )
