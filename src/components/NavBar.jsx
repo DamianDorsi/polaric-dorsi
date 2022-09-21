@@ -144,7 +144,12 @@ const ResponsiveAppBar = () => {
             
           </Box>
 
-          <CartWidget/>
+          <Link to="/cart" style={{color: "white", textDecoration: "none"}}>
+
+              <CartWidget/>
+
+          </Link>    
+          
 
         </Toolbar>
       </Container>
