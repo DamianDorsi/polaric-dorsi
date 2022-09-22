@@ -1,28 +1,35 @@
 import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
-import {data} from "../mock/mockData"
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+
 
 export default function ItemListContainer(){
 
   const{categoryId}= useParams()
-
   const [product, setProduct] = useState([])
 
+
   useEffect(()=>{
-    data.then((res) =>{
-        if (categoryId){
-          setProduct(res.filter((item)=>item.category === categoryId))
-        }else{
-          setProduct(res)
+    const productos = categoryId ? query(collection(db, "products"), where("category", "==", categoryId)) : collection(db, "products")
+    getDocs(productos)
+    .then((res)=>{
+      const lista = res.docs.map((prod)=>{
+        return{
+          id:prod.id,
+          ...prod.data()
         }
+      })
+      setProduct(lista)
     })
-},[categoryId])
+    .catch((error)=> console.log(error))
+  }, [categoryId])
 
 return (
   <div>
     <h1>ITEM LIST CONTAINER</h1>
-      <ItemList product={product}/>
+    <ItemList product={product}/>
   </div>
 )
 }

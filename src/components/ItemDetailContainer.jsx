@@ -1,17 +1,26 @@
 import React, {useState, useEffect} from "react";
 import ItemDetail from "./ItemDetail";
-import {data} from "../mock/mockData"
 import { useParams } from "react-router-dom";
+import { collection, getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 export default function ItemDetailContainer(){
 
     const [item, setItem] = useState({})
     const {id} = useParams()
 
-    useEffect(()=>{
-        data.then((res) =>
-            setItem(res.find((item)=> item.id === id)))
-    },[id])
+   useEffect(()=>{
+    const itemColleaction = collection(db, "products")
+    const referenceDoc = doc(itemColleaction, id)
+    getDoc(referenceDoc)
+    .then((res)=>{
+        setItem({
+            id: res.id,
+            ...res.data()
+        })
+    })
+    .catch((error)=> console.log(error))
+   }, [id])
 
     return(
         <div>
