@@ -12,7 +12,6 @@ export const CartProvider = ({children}) =>{
         }else{
             setCart([...cart, item])
         }
-        console.log(cart);
     }
 
     const clear = ()=>{

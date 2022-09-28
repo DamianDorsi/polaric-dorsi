@@ -7,6 +7,7 @@ import { db } from "../firebase/firebase";
 export default function ItemDetailContainer(){
 
     const [item, setItem] = useState({})
+    const [loading, setLoading] = useState(true)
     const {id} = useParams()
 
    useEffect(()=>{
@@ -20,12 +21,13 @@ export default function ItemDetailContainer(){
         })
     })
     .catch((error)=> console.log(error))
+    .finally(setTimeout(()=>setLoading(false), 2000))
    }, [id])
 
     return(
         <div>
             <div><h1>ITEM DETAIL</h1></div>
-            <ItemDetail item={item}/>
+            {loading ? <div>CARGANDO...</div> : <ItemDetail item={item}/>}
         </div> 
     )
 }
