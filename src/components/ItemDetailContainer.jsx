@@ -3,6 +3,7 @@ import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import { Box, Typography } from "@mui/material";
 
 export default function ItemDetailContainer(){
 
@@ -20,15 +21,16 @@ export default function ItemDetailContainer(){
             ...res.data()
         })
     })
-    .catch((error)=> console.log(error))
+    .catch((error)=> error)
     .finally(setTimeout(()=>setLoading(false), 2000))
    }, [id])
 
     return(
-        <div>
-            <div><h1>ITEM DETAIL</h1></div>
-            {loading ? <div>CARGANDO...</div> : <ItemDetail item={item}/>}
-        </div> 
+        <Box sx={{mt:"5rem", textAlign:"center"}}>
+            <Typography variant="h4">Detalle de tu producto</Typography>
+            {loading ? <div>CARGANDO...</div> 
+            :<ItemDetail item={item}/>}
+        </Box> 
     )
 }
 

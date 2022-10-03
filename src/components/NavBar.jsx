@@ -27,7 +27,6 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-            {/* LOGO */ }
           <Link to="/" style={{color: "white", textDecoration: "none"}}>
           <Typography
             variant="h6"
@@ -55,6 +54,7 @@ const ResponsiveAppBar = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -71,37 +71,25 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
-              }}
-            >
-              
-            <MenuItem onClick={handleCloseNavMenu}>
-
-              <Typography textAlign="center"> 
-
-                <Link to="/category/shooter" style={{color: "black", textDecoration: "none"}}>Shooter</Link>
-
-              </Typography>
-
-
-            </MenuItem>
+              }}>
             
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center"> 
+                  <Link to="/category/shooter" style={{color: "black", textDecoration: "none"}}>Shooter</Link>
+                </Typography>
+              </MenuItem>
+            
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link to="/category/accion" style={{color: "black", textDecoration: "none"}}>Accion</Link>
+                </Typography>
+              </MenuItem>
 
-                <Link to="/category/accion" style={{color: "black", textDecoration: "none"}}>Accion</Link>
-
-              </Typography>
-
-            </MenuItem>
-
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center"> 
-
-                <Link to="/category/RPG" style={{color: "black", textDecoration: "none"}}>RPG</Link>
-              </Typography>
-
-            </MenuItem>
-      
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center"> 
+                  <Link to="/category/RPG" style={{color: "black", textDecoration: "none"}}>RPG</Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
          
@@ -123,34 +111,22 @@ const ResponsiveAppBar = () => {
           </Link>
         
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            
               <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
-
                 <Link to="/category/shooter" style={{color: "white", textDecoration: "none"}}>Shooter</Link>
-
               </Button>
 
               <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
-
                 <Link to="/category/accion" style={{color: "white", textDecoration: "none"}}>Accion</Link>
-
               </Button>
 
               <Button onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
-
                 <Link to="/category/RPG" style={{color: "white", textDecoration: "none"}}>RPG</Link>
-                
               </Button>
-            
           </Box>
 
           <Link to="/cart" style={{color: "white", textDecoration: "none"}}>
-
               <CartWidget/>
-
           </Link>    
-          
-
         </Toolbar>
       </Container>
     </AppBar>

@@ -3,7 +3,6 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-import { Box } from "@mui/material";
 
 
 export default function ItemListContainer(){
@@ -24,16 +23,13 @@ export default function ItemListContainer(){
       })
       setProduct(lista)
     })
-    .catch((error)=> console.log(error))
+    .catch((error)=> error)
   }, [categoryId])
 
 return (
   <>
   <h1>ULTIMAS NOVEDADES!</h1>
-
-  <Box> 
-    <ItemList product={product}/>
-  </Box>
+  <ItemList product={product}/>
   </>
 )
 }

@@ -17,6 +17,7 @@ export default function ItemDetail({item}){
   const {addItem} = useCart()
   const navegar = useNavigate()
 
+  
   const onAdd =()=>{
     let agregarCarrito = {
       title,
@@ -26,32 +27,32 @@ export default function ItemDetail({item}){
       quantity:contador
     }
     setCompra(true)
-    addItem(agregarCarrito) 
+    addItem(agregarCarrito)
   }
 
     return(
-        <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="140"
-          image={img}
-          alt={title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div">
+        <Card sx={{ maxWidth: 345, backgroundColor:"lightblue", mx:"auto", mt:"2rem" }}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={img}
+            alt={title}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {description}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
               <br />
-             $ {price}
-          </Typography>
+              ${price}
+            </Typography>
           {! compra
            ? <ItemCount stock={stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador}/>
            : <Button variant="contained" size="small" onClick={()=> navegar(`/cart`)}> Ir al carrito </Button>}
-        </CardContent>
-      </Card> 
+          </CardContent>
+        </Card> 
     )
 }

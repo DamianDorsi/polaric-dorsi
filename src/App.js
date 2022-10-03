@@ -8,6 +8,7 @@ import { CartProvider } from './context/CartContext';
 import TerminarCompra from './components/TerminarCompra'
 
 export default function App() {
+  
   return (
       <CartProvider>
         <BrowserRouter>
